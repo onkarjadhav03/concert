@@ -49,7 +49,7 @@ const createTour = async(req,res)=>{
 const getTour=async (req,res)=>{
     try{
         const tour=await tourModel.findByPk(req.params.id);
-        if(!itinerary){
+        if(!tour){
             return res.status(404).json({error:"tour not found"})
         }
 

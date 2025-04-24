@@ -13,8 +13,8 @@ module.exports=(sequelize,DataTypes)=>{
         }
     },{timestamps:true})
 
-    tourItem.associate=(models)=>{
-        tourItem.belongsTo(models.tour,{foreignKey:"tourId"})
+    tourItems.associate=(models)=>{
+        tourItems.belongsTo(models.tour,{foreignKey:"tourId"})
     }
 
     return tourItems;

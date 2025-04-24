@@ -3,7 +3,8 @@ const express=require("express")
 require("dotenv").config();
 const{createTour,getTour}=require("./controllers/dataController")
 
-const {getAfterParties,getConcerts,getMerchandiseStalls,getTour}=require("./controllers/tourController");
+const {getAfterParties,getConcerts,getMerchandiseStalls,
+    getConcertsByArtistAndCity,getMerchandiseStallsByStallName,getAfterPartiesByCity}=require("./controllers/tourController");
 const { sequelize } = require("./models");
 const app=express()
 
@@ -16,6 +17,9 @@ app.get("/tour/:id",getTour);
 app.get("/data/concerts",getConcerts);
 app.get("/data/afterparties",getAfterParties);
 app.get("/data/merchandisestalls",getMerchandiseStalls)
+app.get("/concerts/search",getConcertsByArtistAndCity)
+app.get("/merchandiseStall/search",getMerchandiseStallsByStallName)
+app.get("/afterParties/search",getAfterPartiesByCity)
 
 sequelize.authenticate().then(()=>{
     console.log("database connected");
